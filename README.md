@@ -6,3 +6,4 @@ O projeto a ser desenvolvido é uma aplicação na área de saúde e bem-estar q
 ## Integrantes da equipe:
 
 Isaac do Nascimento Oliveira, 247175
+Elton Aquino de Brito Filho, 247059

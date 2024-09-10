@@ -1,7 +1,7 @@
 # mc656-project
 Projeto de Engenharia de Software - UNICAMP, 2s2024
 
-O projeto a ser desenvolvido é uma aplicação na área de saúde e bem-estar que auxilia no monitoramento de saúde da pessoa, fornecendo dicas nutricionais, índices de caloria, etc.
+O projeto a ser desenvolvido é uma aplicação na área de saúde e bem-estar que auxilia no monitoramento de saúde da pessoa, fornecendo dicas nutricionais, índices de caloria, quantidade de água recomendada, etc.
 
 ## Integrantes da equipe:
 

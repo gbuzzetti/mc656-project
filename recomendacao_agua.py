@@ -17,6 +17,5 @@ def calcular_recomendacao_agua(peso: float) -> Tuple[float, int]:
             return None
 
 
-if __name__ == '__main__':
-    print(calcular_recomendacao_agua(75))
+
     

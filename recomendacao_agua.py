@@ -1,0 +1,22 @@
+from typing import Tuple
+
+def calcular_recomendacao_agua(peso: float) -> Tuple[float, int]:
+        
+        try:
+            if peso > 1:
+                qtd_agua = peso * 0.035
+                n_copos = qtd_agua / 0.25
+                return  (round(qtd_agua, 1), round(n_copos))
+            
+            else:
+                print('Peso inválido: o peso precisa ser maior que 1!')
+                return None
+        
+        except Exception as e:
+            print(f'Peso inválido: {e}')
+            return None
+
+
+if __name__ == '__main__':
+    print(calcular_recomendacao_agua(75))
+    

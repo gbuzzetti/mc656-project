@@ -4,7 +4,6 @@ import recomendacao_agua as agua
 class TestRecAgua(unittest.TestCase):
 
     def test_invalid_param(self):
-        
         self.assertIsNone(agua.calcular_recomendacao_agua('Hello'))
         self.assertIsNone(agua.calcular_recomendacao_agua(True))
         self.assertIsNone(agua.calcular_recomendacao_agua(False))
@@ -17,7 +16,6 @@ class TestRecAgua(unittest.TestCase):
         self.assertIsNone(agua.calcular_recomendacao_agua(None))
 
     def test_valid_param(self):
-        
         self.assertEqual(agua.calcular_recomendacao_agua(75), (2.6, 11))
         self.assertEqual(agua.calcular_recomendacao_agua(50), (1.8, 7))
         self.assertEqual(agua.calcular_recomendacao_agua(100), (3.5, 14))

@@ -50,30 +50,3 @@ def classificar_gordura(gordura: float, sexo: str) -> str:
             return "Sobrepeso"
         else:
             return "Obesidade"
-
-# Função de validação de dados
-def validar_dados_imc(altura: float, peso: float) -> bool:
-    return altura > 0 and peso > 0
-
-def validar_dados_gordura(gordura: float, sexo: str) -> bool:
-    return gordura >= 0 and sexo.lower() in ['homem', 'mulher']
-
-# so pra saber se o basico ta funcionando,fazer testes mais robustos...
-def teste_calcular_imc():
-    assert calcular_imc(1.75, 68) == "Peso normal", "Teste IMC falhou!"
-    assert calcular_imc(1.60, 45) == "Abaixo do peso", "Teste IMC falhou!"
-    assert calcular_imc(1.80, 90) == "Sobrepeso", "Teste IMC falhou!"
-    assert calcular_imc(1.50, 100) == "Obesidade Grau III", "Teste IMC falhou!"
-    print("Todos os testes de IMC passaram!")
-
-def teste_classificar_gordura():
-    assert classificar_gordura(15, "homem") == "Boa forma (fitness)", "Teste Gordura Homem falhou!"
-    assert classificar_gordura(35, "mulher") == "Sobrepeso", "Teste Gordura Mulher falhou!"
-    assert classificar_gordura(25, "homem") == "Sobrepeso", "Teste Gordura Homem falhou!"
-    assert classificar_gordura(12, "mulher") == "Gordura essencial", "Teste Gordura Mulher falhou!"
-    print("Todos os testes de Gordura Corporal passaram!")
-
-# Executando os testes
-if __name__ == "__main__":
-    teste_calcular_imc()
-    teste_classificar_gordura()

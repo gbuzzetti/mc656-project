@@ -31,13 +31,3 @@ def calcular_gasto_calorico_diario(sexo, peso, altura, idade, nivel_atividade):
     tmb = calcular_TMB(sexo, peso, altura, idade)
     gcd = calcular_NA(tmb, nivel_atividade)
     return round(gcd)
-
-# Exemplo de uso:
-sexo = 'homem'  # 'homem' ou 'mulher'
-peso = 70       # em kg
-altura = 175    # em cm
-idade = 23      # em anos
-nivel_atividade = 'moderadamente ativo'  # Escolha o nível de atividade
-
-gcd = calcular_gasto_calorico_diario(sexo, peso, altura, idade, nivel_atividade)
-print(f"Gasto Calórico Diário recomendado: {gcd} calorias")

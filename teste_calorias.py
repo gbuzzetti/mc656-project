@@ -1,5 +1,5 @@
 import unittest
-from calculo_caloriasDiarias import calcular_TMB, calcular_NA, calcular_gasto_calorico_diario
+from calculo_calorias_diarias import calcular_TMB, calcular_NA, calcular_gasto_calorico_diario
 
 class TestCalculoMetabolismo(unittest.TestCase):
     

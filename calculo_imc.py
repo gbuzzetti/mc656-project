@@ -1,7 +1,7 @@
 # Função para calcular o IMC
 def calcular_imc(altura: float, peso: float) -> str:
     if altura <= 0 or peso <= 0:
-        return "Dados inválidos para cálculo do IMC."
+        raise ValueError("Dados inválidos para cálculo do IMC.")
     
     imc = peso / (altura ** 2)
     
@@ -22,7 +22,7 @@ def calcular_imc(altura: float, peso: float) -> str:
 def classificar_gordura(gordura: float, sexo: str) -> str:
     sexo = sexo.lower()
     if gordura < 0 or sexo not in ['homem', 'mulher']:
-        return "Dados inválidos para classificação de gordura corporal."
+        raise ValueError("Dados inválidos para classificação de gordura corporal.")
     
     if sexo == 'homem':
         if 2 <= gordura <= 5:

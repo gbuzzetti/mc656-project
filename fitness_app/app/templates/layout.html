@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;700&family=Inria+Sans:wght@400;700&family=Italianno:wght@400;700&display=swap">
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <span class="fitness-app">Fitness</span> App
+        </div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/nutrition">Nutrição</a>
+            <a href="/water">Água</a>
+            <a href="/calories">Calorias</a>
+            <a href="/sobre">Sobre</a>
+        </nav>
+        {% block content %}
+        <!-- conteudo a ser mostrado -->
+        {% endblock %}
+    </div>
+</body>
+
+<footer>
+    <h1>Este site esta sendo desenvolvido para a materia MC656 (engenharia de software)</h1>
+</footer>
+
+</html>

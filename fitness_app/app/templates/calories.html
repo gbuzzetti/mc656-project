@@ -1,1 +1,79 @@
-{% extends "layout.html" %}
+{% extends 'layout.html' %}
+
+{% block title %}Calorias{% endblock %}
+
+{% block content %}
+    <style>
+        /* Estilos específicos para a página de calorias */
+        .content-container {
+            display: flex;
+            flex-direction: column; /* Alinha os itens na vertical */
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .form-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            max-width: 500px;
+            margin: 0; /* Remove a margem para alinhar à esquerda */
+            padding: 0; /* Remove o preenchimento para alinhar à esquerda */
+        }
+        .form-section label {
+            font-weight: bold;
+        }
+        .form-section input, .form-section select, .form-section button {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .result-section {
+            margin-top: 20px;
+            font-size: 24px; /* Aumenta o tamanho da fonte do resultado */
+            font-weight: bold;
+            color: #ffffff; /* Adiciona uma cor ao texto para maior visibilidade */
+        }
+    </style>
+
+    <div class="content-container">
+        <div class="form-section">
+            <h1>Calculadora de Gasto Calórico Diário</h1>
+            <form action="/calories" method="POST">
+                <label for="sexo">Sexo:</label>
+                <select name="sexo" id="sexo" required>
+                    <option value="homem">Homem</option>
+                    <option value="mulher">Mulher</option>
+                </select>
+
+                <label for="peso">Peso (kg):</label>
+                <input type="number" name="peso" id="peso" required>
+
+                <label for="altura">Altura (cm):</label>
+                <input type="number" name="altura" id="altura" required>
+
+                <label for="idade">Idade:</label>
+                <input type="number" name="idade" id="idade" required>
+
+                <label for="nivel_atividade">Nível de Atividade:</label>
+                <select name="nivel_atividade" id="nivel_atividade" required>
+                    <option value="sedentário">Sedentário</option>
+                    <option value="levemente ativo">Levemente Ativo</option>
+                    <option value="moderadamente ativo">Moderadamente Ativo</option>
+                    <option value="altamente ativo">Altamente Ativo</option>
+                    <option value="muito ativo">Muito Ativo</option>
+                </select>
+
+                <button type="submit">Calcular</button>
+            </form>
+        </div>
+        
+        <div class="result-section">
+            {% if resultado %}
+                <h2>Seu Gasto Calórico Diário é: {{ resultado }} calorias</h2>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

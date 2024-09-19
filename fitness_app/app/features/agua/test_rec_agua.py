@@ -1,5 +1,5 @@
 import unittest
-import recomendacao_agua as agua
+import fitness_app.app.features.agua.recomendacao_agua as agua
 
 class TestRecAgua(unittest.TestCase):
 

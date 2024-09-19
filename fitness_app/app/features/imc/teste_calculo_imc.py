@@ -1,5 +1,5 @@
 import unittest
-from calculo_imc import calcular_imc, classificar_gordura
+from fitness_app.app.features.imc.calculo_imc import calcular_imc, classificar_gordura
 
 class TestFitnessFunctions(unittest.TestCase):
     

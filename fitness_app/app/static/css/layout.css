@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Inria Sans', cursive; 
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    background-image: url('background.png'); /* Caminho correto da imagem */
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh; /* Garante que o container ocupe a tela toda */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.fitness-app {
+    font-family: 'Inknut Antiqua', cursive; 
+    font-size: 36px; 
+    color: #B78DE7;
+    font-weight: normal;
+}
+
+.logo {
+    position: absolute;
+    top: 30px;
+    left: 61px;
+    color: #ffffff;
+    font-size: 36px;
+    font-family: 'Inknut Antiqua', serif;
+    line-height: 1.2; 
+}
+
+.logo span {
+    display: block;
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 60px; /* Ajuste o valor conforme necessário */
+    font-size: 24px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    position: relative;
+    flex-shrink: 0; /* Garante que o footer fique no final */
+    font-size: 10px;
+    font-family: 'Inria Sans', cursive;
+    color: #3f2d55;
+
+}
+
+/* home */
+.middle-sentence {
+    font-size: 48px;
+    margin-top: 100px;
+    color: #D1A8FF;
+    font-family: 'Inknut Antiqua', serif;
+    line-height: 1.2; 
+    font-weight: normal;
+}
+
+.middle-sentence-2 {
+    font-size: 64px;
+    font-family: 'Italianno', cursive;
+    color: #ffffff;
+    font-weight: normal;
+}
+
+
+/* water */
+/* Fundo com efeito de blur */
+.blur-background {
+    background: rgba(255, 255, 255, 0.75); /* Fundo semi-transparente */
+    border-radius: 16px;
+    padding: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(48px); /* Efeito de desfoque no fundo */
+    -webkit-backdrop-filter: blur(48px);
+    width: 66.25%; 
+    height: 40%;
+    margin: 0 auto;
+    position: relative; /* Garante que o conteúdo dentro fique no topo */
+}
+
+/* Área do calculador de água */
+.water-calculator {
+    margin-top: 40px;
+    position: relative; /* Para garantir que o resultado apareça corretamente */
+    z-index: 1; /* Coloca o conteúdo do calculador acima do blur */
+}
+
+/* Título do calculador */
+.water-calculator h1 {
+    font-family: 'Inria Sans', serif;
+    color: #5a2c82;
+    font-size: 40px;
+    margin-bottom: 40px;
+    font-weight: normal;
+    text-align: center;
+}
+
+/* Área de cálculo */
+.calc-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* Estilo dos inputs */
+.calc-area input {
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    width: 100px;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* Sinal de multiplicação */
+.calc-area span {
+    font-size: 24px;
+    color: #5a2c82;
+}
+
+/* Remover as setas de input number no Chrome, Safari, Edge, Opera */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Estilo da box de resultado */
+.result-box {
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    width: 50%; /* Mesma largura dos inputs para consistência */
+    text-align: center;
+    font-size: 18px;
+    background-color: white; /* Fundo branco para destacá-la do blur */
+    color: #000000; /* Texto em roxo claro */
+    position: relative; /* Para controle de sobreposição */
+    z-index: 2; /* Garantindo que a box de resultado fique visível */
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+/* Estilo do botão */
+#calcular-btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    background-color: #5a2c82; /* Cor de fundo roxa */
+    color: white; /* Texto branco */
+    font-size: 18px;
+    font-family: 'Inria Sans', serif;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 15px rgba(90, 44, 130, 0.4); /* Sombras suaves */
+}
+
+/* Animação de hover do botão */
+#calcular-btn:hover {
+    background-color: #7b48af; /* Cor mais clara no hover */
+    transform: scale(1.05); /* Leve aumento no hover */
+}
+
+/* Efeito ao clicar no botão */
+#calcular-btn:active {
+    transform: scale(0.98); /* Leve redução ao clicar */
+    box-shadow: 0 2px 8px rgba(90, 44, 130, 0.4); /* Sombras mais sutis ao clicar */
+}
+
+/* calories */
+/* Estilos específicos para a página de calorias */
+.content-container {
+    display: flex;
+    flex-direction: column; /* Alinha os itens na vertical */
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0; /* Remove a margem para alinhar à esquerda */
+    padding: 0; /* Remove o preenchimento para alinhar à esquerda */
+}
+.form-section label {
+    font-weight: bold;
+}
+.form-section input, .form-section select, .form-section button {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.result-section {
+    margin-top: 20px;
+    font-size: 24px; /* Aumenta o tamanho da fonte do resultado */
+    font-weight: bold;
+    color: #ffffff; /* Adiciona uma cor ao texto para maior visibilidade */
+}

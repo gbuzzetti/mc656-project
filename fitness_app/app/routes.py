@@ -1,6 +1,7 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, jsonify, render_template, request
 from app.features.calorias.calculo_calorias_diarias import calcular_gasto_calorico_diario
 from app.features.imc.calculo_imc import calcular_imc
+from app.features.agua.recomendacao_agua import calcular_recomendacao_agua
 
 main_bp = Blueprint('main', __name__)
 
@@ -39,6 +40,23 @@ def calories():
     # Renderiza a página com o resultado do gasto calórico (se houver)
     return render_template('calories.html', resultado=resultado)
 
-@main_bp.route('/water')
+# @main_bp.route('/water')
+# def water():
+#     return render_template('water.html')
+
+# Função que calcula a quantidade de água
+@main_bp.route('/water', methods=['GET', 'POST'])
 def water():
-    return render_template('water.html')
+    water_result = None  # Variável para armazenar o resultado da quantidade de água
+    if request.method == 'POST':
+        try:
+            # Captura os dados enviados pelo formulário
+            kg = float(request.form['peso'])
+
+            # Cálculo da quantidade de água
+            water_result = calcular_recomendacao_agua(kg)
+        except (ValueError, KeyError):
+            water_result = 'Erro ao processar os dados. Verifique os valores inseridos.'
+
+    # Renderiza a página com o resultado da quantidade de água (se houver)
+    return render_template('water.html', resultado=water_result)

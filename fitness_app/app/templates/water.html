@@ -1,1 +1,29 @@
 {% extends "layout.html" %}
+
+{% block content %}
+    <div class="blur-background">
+        <div class="water-calculator">
+            <h1>Quantidade de água recomendada</h1>
+            <form method="POST">
+                <div class="calc-area">
+                    <!-- Campo de entrada para o peso em kg -->
+                    <input type="number" placeholder="Kg" name="peso" id="kg-input" required>
+                    <span>×</span>
+                    <!-- Valor fixo de referência para o cálculo -->
+                    <input type="text" value="0,035 mL" readonly id="ml-base">
+                </div>
+                
+                <!-- Botão para enviar o formulário e calcular -->
+                <button type="submit" id="calcular-btn">Calcular</button>
+            </form>
+
+            <!-- Caixa para exibir o resultado do cálculo -->
+            <div id="resultado" class="result-box">
+                {% if resultado %}
+                    <p>Você deve beber aproximadamente <strong>{{ resultado }} litros</strong> de água por dia.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+{% endblock %}

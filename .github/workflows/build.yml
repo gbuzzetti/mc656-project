@@ -1,0 +1,40 @@
+name: Python Flask Application CI
+
+on:
+  push:
+    branches: 
+      - '*'
+  pull_request:
+    branches: 
+      - '*'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m venv venv
+        source venv/bin/activate
+        pip install -r requirements.txt
+
+    - name: Run Flask application tests
+      run: |
+        source venv/bin/activate
+        python -m unittest discover -s tests
+
+    - name: Lint with flake8
+      run: |
+        pip install flake8
+        # Linting the code to check for Python errors
+        flake8 app tests

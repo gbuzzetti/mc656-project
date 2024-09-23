@@ -25,16 +25,14 @@ jobs:
     - name: Install dependencies
       run: |
         python -m venv venv
-        source venv/bin/activate
+        venv/bin/activate
         pip install -r requirements.txt
 
     - name: Run Flask application tests
       run: |
-        source venv/bin/activate
-        PYTHONPATH=app python -m unittest discover -s . -p 'test_*'
+        venv/bin/python -m unittest discover -s tests -p 'test_*'
 
     - name: Lint with flake8
       run: |
-        pip install flake8
-        # Linting the code to check for Python errors
-        flake8 app tests
+        venv/bin/python -m pip install flake8
+        venv/bin/python -m flake8 app tests

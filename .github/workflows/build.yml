@@ -1,40 +1,40 @@
 name: Python Flask Application CI
 
 on:
-  push:
-    branches: 
-      - '*'
-  pull_request:
-    branches: 
-      - '*'
+    push:
+        branches: 
+            - '*'
+    pull_request:
+        branches: 
+            - '*'
 
 jobs:
-  build:
+    build:
 
-    runs-on: ubuntu-latest
+        runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+        steps:
+        - name: Checkout code
+          uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.x'
+        - name: Set up Python
+          uses: actions/setup-python@v4
+          with:
+              python-version: '3.x'
 
-    - name: Install dependencies
-      run: |
-        python -m venv venv
-        venv/bin/activate
-        pip install -r requirements.txt
+        - name: Install dependencies
+          run: |
+              python -m venv venv
+              venv/bin/activate
+              pip install -r requirements.txt
 
-    - name: Run Flask application tests
-      run: |
-        venv/bin/python -m unittest discover -s tests -p 'test_*'
-      env:
-    	  PYTHONPATH: fitness_app/app
+        - name: Run Flask application tests
+          run: |
+              venv/bin/python -m unittest discover -s tests -p 'test_*'
+          env:
+              PYTHONPATH: fitness_app/app
 
-    - name: Lint with flake8
-      run: |
-        venv/bin/python -m pip install flake8
-        venv/bin/python -m flake8 app tests
+        - name: Lint with flake8
+          run: |
+              venv/bin/python -m pip install flake8
+              venv/bin/python -m flake8 app tests

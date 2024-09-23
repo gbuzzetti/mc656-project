@@ -24,9 +24,8 @@ jobs:
 
         - name: Install dependencies
           run: |
-              pip install virtualenv
-              virtualenv -p python3 venv
-              sudo venv/bin/activate
+              python -m venv venv
+              venv/bin/activate
               pip install -r requirements.txt
 
         - name: Run Flask application tests

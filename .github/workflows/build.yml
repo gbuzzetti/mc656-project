@@ -32,7 +32,7 @@ jobs:
       run: |
         venv/bin/python -m unittest discover -s tests -p 'test_*'
       env:
-    	PYTHONPATH: fitness_app/app
+    	  PYTHONPATH: fitness_app/app
 
     - name: Lint with flake8
       run: |

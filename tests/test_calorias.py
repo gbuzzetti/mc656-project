@@ -1,5 +1,9 @@
 import unittest
-from fitness_app.app.features.calorias.calculo_calorias_diarias import calcular_TMB, calcular_NA, calcular_gasto_calorico_diario
+import sys
+import os 
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../fitness_app')))
+from app.features.calorias.calculo_calorias_diarias import calcular_TMB, calcular_NA, calcular_gasto_calorico_diario
 
 class TestCalculoMetabolismo(unittest.TestCase):
     

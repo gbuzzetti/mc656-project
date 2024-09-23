@@ -1,5 +1,9 @@
 import unittest
-from fitness_app.app.features.imc.calculo_imc import calcular_imc, classificar_gordura
+import sys
+import os 
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../fitness_app')))
+from app.features.imc.calculo_imc import calcular_imc, classificar_gordura
 
 class TestFitnessFunctions(unittest.TestCase):
     

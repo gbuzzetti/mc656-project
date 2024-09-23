@@ -1,5 +1,5 @@
 # Ignorar arquivos de cache do Python
-__pycache__/
+*__pycache__/
 *.pyc
 
 # Ignorar alterações no .gitignore

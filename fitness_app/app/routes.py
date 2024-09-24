@@ -40,11 +40,6 @@ def calories():
     # Renderiza a página com o resultado do gasto calórico (se houver)
     return render_template('calories.html', resultado=resultado)
 
-# @main_bp.route('/water')
-# def water():
-#     return render_template('water.html')
-
-# Função que calcula a quantidade de água
 @main_bp.route('/water', methods=['GET', 'POST'])
 def water():
     water_result = None  # Variável para armazenar o resultado da quantidade de água
@@ -60,3 +55,7 @@ def water():
 
     # Renderiza a página com o resultado da quantidade de água (se houver)
     return render_template('water.html', resultado=water_result)
+
+@main_bp.route('/about')
+def about():
+    return render_template('about.html')

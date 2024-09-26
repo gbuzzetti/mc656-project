@@ -96,7 +96,6 @@ footer {
 }
 
 
-/* water */
 .blur-background-calories {
     background: rgba(255, 255, 255, 0.75); /* Fundo semi-transparente */
     border-radius: 16px;
@@ -182,6 +181,8 @@ footer {
     gap: 10px;
     margin-bottom: 20px;
     text-align: center;
+    width: 60%; /* Definido para ocupar 60% do contêiner blur-background */
+    margin: 0 auto;
 }
 
 .calc-area-calorie label {
@@ -221,6 +222,7 @@ input[type=number]::-webkit-inner-spin-button {
     z-index: 2; /* Garantindo que a box de resultado fique visível */
     margin: 0 auto;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #calcular-btn {
@@ -234,6 +236,7 @@ input[type=number]::-webkit-inner-spin-button {
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
     box-shadow: 0 4px 15px rgba(90, 44, 130, 0.4); /* Sombras suaves */
+    margin: 10px;
 }
 
 #calcular-btn:hover {

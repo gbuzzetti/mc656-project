@@ -1,22 +1,24 @@
+from typing import Tuple
+
 # Função para calcular o IMC
-def calcular_imc(altura: float, peso: float) -> str:
+def calcular_imc(altura: float, peso: float) -> Tuple[str, float]:
     if altura <= 0 or peso <= 0:
         return "Dados inválidos para cálculo do IMC."
     
     imc = peso / (altura ** 2)
     
     if imc < 18.5:
-        return "Abaixo do peso"
+        return "Abaixo do peso", round(imc, 2)
     elif 18.5 <= imc <= 24.9:
-        return "Peso normal"
+        return "Peso normal", round(imc, 2)
     elif 25 <= imc <= 29.9:
-        return "Sobrepeso"
+        return "Sobrepeso", round(imc, 2)
     elif 30 <= imc <= 34.9:
-        return "Obesidade Grau I"
+        return "Obesidade Grau I", round(imc, 2)
     elif 35 <= imc <= 39.9:
-        return "Obesidade Grau II"
+        return "Obesidade Grau II", round(imc, 2)
     else:
-        return "Obesidade Grau III"
+        return "Obesidade Grau III", round(imc, 2)
 
 # Função para calcular a classificação de gordura corporal com base no sexo
 def classificar_gordura(gordura: float, sexo: str) -> str:

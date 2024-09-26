@@ -1,60 +1,30 @@
 {% extends 'layout.html' %}
 
-{% block title %}IMC{% endblock %}
+{% block title %}Calculadora de Calorias{% endblock %}
 
 {% block content %}
-    <style>
-        .content-container {
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .form-section {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            width: 100%;
-            max-width: 500px;
-            margin: 0;
-            padding: 0;
-        }
-        .form-section label {
-            font-weight: bold;
-        }
-        .form-section input, .form-section button {
-            padding: 10px;
-            font-size: 16px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        .result-section {
-            margin-top: 20px;
-            font-size: 24px;
-            font-weight: bold;
-            color: #ffffff;
-        }
-    </style>
-
-    <div class="content-container">
-        <div class="form-section">
+    <div class="blur-background">
+        <div class="imc-calculator">
             <h1>Calculadora de IMC</h1>
             <form action="/nutrition" method="POST">
-                <label for="peso">Peso (kg):</label>
-                <input type="number" name="peso" id="peso" required>
+                <div class="calc-area">
+                    <!-- Campo de entrada para o peso -->
+                    <input type="number" placeholder="Peso (kg)" id="peso" name="peso" required>
+                    <span>×</span>
+                    <!-- Campo de entrada para o nível de atividade -->
+                    <input type="number" placeholder="Altura (cm)" id="altura" name="altura" required>
+                </div>
 
-                <label for="altura">Altura (cm):</label>
-                <input type="number" name="altura" id="altura" required>
-
-                <button type="submit">Calcular IMC</button>
+                <!-- Botão para calcular IMC -->
+                <button type="submit" id="calcular-btn">Calcular IMC</button>
             </form>
-        </div>
 
-        <div class="result-section">
-            {% if imc_result %}
-                <h2>Seu IMC é: {{ imc_result }}</h2>
-            {% endif %}
+            <div class="result-box">
+                {% if imc_result %}
+                    <p>Seu IMC é <strong>{{ imc_result[1] }}</strong> e a classificação é <strong>{{ imc_result[0] }}</strong></p>
+                {% endif %}
+            </div>
         </div>
     </div>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 {% endblock %}

@@ -97,7 +97,6 @@ footer {
 
 
 /* water */
-/* Fundo com efeito de blur */
 .blur-background {
     background: rgba(255, 255, 255, 0.75); /* Fundo semi-transparente */
     border-radius: 16px;
@@ -109,16 +108,10 @@ footer {
     height: 40%;
     margin: 0 auto;
     position: relative; /* Garante que o conteúdo dentro fique no topo */
-}
-
-/* Área do calculador de água */
-.water-calculator {
     margin-top: 40px;
-    position: relative; /* Para garantir que o resultado apareça corretamente */
     z-index: 1; /* Coloca o conteúdo do calculador acima do blur */
 }
 
-/* Título do calculador */
 .water-calculator h1 {
     font-family: 'Inria Sans', serif;
     color: #5a2c82;
@@ -128,7 +121,15 @@ footer {
     text-align: center;
 }
 
-/* Área de cálculo */
+.imc-calculator h1 {
+    font-family: 'Inria Sans', serif;
+    color: #5a2c82;
+    font-size: 40px;
+    margin-bottom: 40px;
+    font-weight: normal;
+    text-align: center;
+}
+
 .calc-area {
     display: flex;
     justify-content: center;
@@ -137,7 +138,6 @@ footer {
     margin-bottom: 20px;
 }
 
-/* Estilo dos inputs */
 .calc-area input {
     padding: 10px;
     border: 2px solid #ddd;
@@ -147,7 +147,6 @@ footer {
     font-size: 18px;
 }
 
-/* Sinal de multiplicação */
 .calc-area span {
     font-size: 24px;
     color: #5a2c82;
@@ -160,7 +159,6 @@ input[type=number]::-webkit-inner-spin-button {
     margin: 0;
 }
 
-/* Estilo da box de resultado */
 .result-box {
     padding: 10px;
     border: 2px solid #ddd;
@@ -176,7 +174,6 @@ input[type=number]::-webkit-inner-spin-button {
     margin-top: 20px;
 }
 
-/* Estilo do botão */
 #calcular-btn {
     padding: 12px 30px;
     border: none;
@@ -190,48 +187,13 @@ input[type=number]::-webkit-inner-spin-button {
     box-shadow: 0 4px 15px rgba(90, 44, 130, 0.4); /* Sombras suaves */
 }
 
-/* Animação de hover do botão */
 #calcular-btn:hover {
-    background-color: #7b48af; /* Cor mais clara no hover */
+    background-color: #7b48af;
     transform: scale(1.05); /* Leve aumento no hover */
 }
 
-/* Efeito ao clicar no botão */
 #calcular-btn:active {
     transform: scale(0.98); /* Leve redução ao clicar */
     box-shadow: 0 2px 8px rgba(90, 44, 130, 0.4); /* Sombras mais sutis ao clicar */
 }
 
-/* calories */
-/* Estilos específicos para a página de calorias */
-.content-container {
-    display: flex;
-    flex-direction: column; /* Alinha os itens na vertical */
-    padding: 20px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-.form-section {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-    max-width: 500px;
-    margin: 0; /* Remove a margem para alinhar à esquerda */
-    padding: 0; /* Remove o preenchimento para alinhar à esquerda */
-}
-.form-section label {
-    font-weight: bold;
-}
-.form-section input, .form-section select, .form-section button {
-    padding: 10px;
-    font-size: 16px;
-    width: 100%;
-    box-sizing: border-box;
-}
-.result-section {
-    margin-top: 20px;
-    font-size: 24px; /* Aumenta o tamanho da fonte do resultado */
-    font-weight: bold;
-    color: #ffffff; /* Adiciona uma cor ao texto para maior visibilidade */
-}

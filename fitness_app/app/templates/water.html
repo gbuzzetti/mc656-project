@@ -20,8 +20,9 @@
             <!-- Caixa para exibir o resultado do cálculo -->
             <div id="resultado" class="result-box">
                 {% if resultado %}
-                    <p>Você deve beber aproximadamente <strong>{{ resultado }} litros</strong> de água por dia.</p>
+                    <p>Você deve beber <strong>{{ resultado[0] }} litros</strong> de água por dia (aproximadamente <strong>{{ resultado[1] }} copos</strong> de água).</p>
                 {% endif %}
+
             </div>
         </div>
     </div>

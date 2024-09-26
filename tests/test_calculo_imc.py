@@ -10,27 +10,27 @@ class TestFitnessFunctions(unittest.TestCase):
     # Testes para a função calcular_imc
     def test_calcular_imc_abaixo_do_peso(self):
         """ Testa o cálculo de IMC para o resultado 'Abaixo do peso' """
-        self.assertEqual(calcular_imc(1.75, 50), "Abaixo do peso")
+        self.assertEqual(calcular_imc(1.75, 50), ("Abaixo do peso", 16.33))
     
     def test_calcular_imc_peso_normal(self):
         """ Testa o cálculo de IMC para o resultado 'Peso normal' """
-        self.assertEqual(calcular_imc(1.75, 68), "Peso normal")
+        self.assertEqual(calcular_imc(1.75, 68), ("Peso normal", 22.20))
     
     def test_calcular_imc_sobrepeso(self):
         """ Testa o cálculo de IMC para o resultado 'Sobrepeso' """
-        self.assertEqual(calcular_imc(1.75, 80), "Sobrepeso")
+        self.assertEqual(calcular_imc(1.75, 80), ("Sobrepeso", 26.12))
     
     def test_calcular_imc_obesidade_grau_I(self):
         """ Testa o cálculo de IMC para o resultado 'Obesidade Grau I' """
-        self.assertEqual(calcular_imc(1.75, 95), "Obesidade Grau I")
+        self.assertEqual(calcular_imc(1.75, 95), ("Obesidade Grau I", 31.02))
     
     def test_calcular_imc_obesidade_grau_II(self):
         """ Testa o cálculo de IMC para o resultado 'Obesidade Grau II' """
-        self.assertEqual(calcular_imc(1.75, 110), "Obesidade Grau II")
+        self.assertEqual(calcular_imc(1.75, 110), ("Obesidade Grau II", 35.92))
     
     def test_calcular_imc_obesidade_grau_III(self):
         """ Testa o cálculo de IMC para o resultado 'Obesidade Grau III' """
-        self.assertEqual(calcular_imc(1.75, 125), "Obesidade Grau III")
+        self.assertEqual(calcular_imc(1.75, 125), ("Obesidade Grau III", 40.82))
     
     def test_calcular_imc_dados_invalidos(self):
         """ Testa se a função retorna mensagem de erro para valores inválidos """

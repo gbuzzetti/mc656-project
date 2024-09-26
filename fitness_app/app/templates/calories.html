@@ -1,44 +1,45 @@
 {% extends 'layout.html' %}
 
-{% block title %}Calorias{% endblock %}
-
 {% block content %}
-    <div class="content-container">
-        <div class="form-section">
+    <div class="blur-background-calories">
+        <div class="calorie-calculator">
             <h1>Calculadora de Gasto Calórico Diário</h1>
             <form action="/calories" method="POST">
-                <label for="sexo">Sexo:</label>
-                <select name="sexo" id="sexo" required>
-                    <option value="homem">Homem</option>
-                    <option value="mulher">Mulher</option>
-                </select>
+                <div class="calc-area-calorie">
+                    <label for="sexo">Sexo:</label>
+                    <select name="sexo" id="sexo" required>
+                        <option value="homem">Homem</option>
+                        <option value="mulher">Mulher</option>
+                    </select>
 
-                <label for="peso">Peso (kg):</label>
-                <input type="number" name="peso" id="peso" required>
+                    <label for="peso">Peso:</label>
+                    <input type="number" placeholder="Kg" name="peso" id="peso" required>
 
-                <label for="altura">Altura (cm):</label>
-                <input type="number" name="altura" id="altura" required>
+                    <label for="altura">Altura:</label>
+                    <input type="number" placeholder="cm" name="altura" id="altura" required>
 
-                <label for="idade">Idade:</label>
-                <input type="number" name="idade" id="idade" required>
+                    <label for="idade">Idade:</label>
+                    <input type="number" name="idade" id="idade" required>
 
-                <label for="nivel_atividade">Nível de Atividade:</label>
-                <select name="nivel_atividade" id="nivel_atividade" required>
-                    <option value="sedentário">Sedentário</option>
-                    <option value="levemente ativo">Levemente Ativo</option>
-                    <option value="moderadamente ativo">Moderadamente Ativo</option>
-                    <option value="altamente ativo">Altamente Ativo</option>
-                    <option value="muito ativo">Muito Ativo</option>
-                </select>
+                    <label for="nivel_atividade">Nível de Atividade:</label>
+                    <select name="nivel_atividade" id="nivel_atividade" required>
+                        <option value="sedentário">Sedentário</option>
+                        <option value="levemente ativo">Levemente Ativo</option>
+                        <option value="moderadamente ativo">Moderadamente Ativo</option>
+                        <option value="altamente ativo">Altamente Ativo</option>
+                        <option value="muito ativo">Muito Ativo</option>
+                    </select>
+                </div>
 
-                <button type="submit">Calcular</button>
+                <button type="submit" id="calcular-btn">Calcular</button>
             </form>
-        </div>
+
         
-        <div class="result-section">
-            {% if resultado %}
-                <h2>Seu Gasto Calórico Diário é: {{ resultado }} calorias</h2>
-            {% endif %}
+            <div class="result-box">
+                {% if resultado %}
+                    <h2>Seu Gasto Calórico Diário é: {{ resultado }} calorias</h2>
+                {% endif %}
+            </div>
         </div>
     </div>
 {% endblock %}

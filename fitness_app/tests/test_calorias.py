@@ -2,7 +2,7 @@ import unittest
 import sys
 import os 
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../fitness_app')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from app.features.calorias.calculo_calorias_diarias import calcular_TMB, calcular_NA, calcular_gasto_calorico_diario
 
 class TestCalculoMetabolismo(unittest.TestCase):

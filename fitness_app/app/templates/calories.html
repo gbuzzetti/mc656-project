@@ -1,1 +1,45 @@
-{% extends "layout.html" %}
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="blur-background-calories">
+        <div class="calorie-calculator">
+            <h1>Calculadora de Gasto Calórico Diário</h1>
+            <form action="/calories" method="POST">
+                <div class="calc-area-calorie">
+                    <label for="sexo">Sexo:</label>
+                    <select name="sexo" id="sexo" required>
+                        <option value="homem">Homem</option>
+                        <option value="mulher">Mulher</option>
+                    </select>
+
+                    <label for="peso">Peso:</label>
+                    <input type="number" placeholder="Kg" name="peso" id="peso" required>
+
+                    <label for="altura">Altura:</label>
+                    <input type="number" placeholder="cm" name="altura" id="altura" required>
+
+                    <label for="idade">Idade:</label>
+                    <input type="number" name="idade" id="idade" required>
+
+                    <label for="nivel_atividade">Nível de Atividade:</label>
+                    <select name="nivel_atividade" id="nivel_atividade" required>
+                        <option value="sedentário">Sedentário</option>
+                        <option value="levemente ativo">Levemente Ativo</option>
+                        <option value="moderadamente ativo">Moderadamente Ativo</option>
+                        <option value="altamente ativo">Altamente Ativo</option>
+                        <option value="muito ativo">Muito Ativo</option>
+                    </select>
+                </div>
+
+                <button type="submit" id="calcular-btn">Calcular</button>
+            </form>
+
+        
+            <div class="result-box">
+                {% if resultado %}
+                    <p>Seu Gasto Calórico Diário é: <strong>{{ resultado }} calorias</strong></p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

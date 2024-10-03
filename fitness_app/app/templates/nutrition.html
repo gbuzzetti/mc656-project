@@ -1,1 +1,28 @@
-{% extends "layout.html" %}
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="blur-background">
+        <div class="imc-calculator">
+            <h1>Calculadora de IMC</h1>
+            <form action="/nutrition" method="POST">
+                <div class="calc-area">
+                    <!-- Campo de entrada para o peso -->
+                    <input type="number" placeholder="Peso (kg)" id="peso" name="peso" required>
+                    <span>×</span>
+                    <!-- Campo de entrada para o nível de atividade -->
+                    <input type="number" placeholder="Altura (cm)" id="altura" name="altura" required>
+                </div>
+
+                <!-- Botão para calcular IMC -->
+                <button type="submit" id="calcular-btn">Calcular IMC</button>
+            </form>
+
+            <div class="result-box">
+                {% if imc_result %}
+                    <p>Seu IMC é <strong>{{ imc_result[1] }}</strong> e a classificação é <strong>{{ imc_result[0] }}</strong></p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+{% endblock %}

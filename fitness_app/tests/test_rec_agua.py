@@ -1,5 +1,9 @@
 import unittest
-import recomendacao_agua as agua
+import sys
+import os 
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+import app.features.agua.recomendacao_agua as agua
 
 class TestRecAgua(unittest.TestCase):
 

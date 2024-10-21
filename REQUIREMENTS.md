@@ -1,46 +1,75 @@
-#Elicitação de Requisitos
+# Elicitação de Requisitos - Avaliação 3
 
-BRAINSTORM:
+## BRAINSTORM:
 
--cada usuario pode manter uma conta
+### Para a realização desta técnica de elicitação de requisitos, nos reunimos e anotamos neste documentos as ideias de novas funcionalidades que surgiram durante a conversa. 
 
--dicas de para melhorar o condicionamento fisisco baseado em metricas fornescidas pelo usuario
+- Cada usuário pode manter uma conta
 
--cada usario pode armazer informacoes sobre oque ele consumiu no dia e manter o tracking das calorias e macronutrientes ingeridos
+- Dicas de para melhorar o condicionamento físico baseado em métricas fornecidas pelo usuário
 
--alarmes dentro do aplicativo para atividades importantes,como:hora de ir para a academia,hora de comer
+- Cada usuário pode armazenar informacões sobre o que ele consumiu no dia e manter o tracking das calorias e macronutrientes ingeridos
 
--manter um tracking do streak de dias que o usuario praticou exercicios,como no duolingo
+- Alarmes dentro do aplicativo para atividades importantes, como: hora de ir para a academia, hora de comer
 
--sugestoes de treinos para a academia baseado em objetivos
+- Manter um tracking do streak de dias que o usuario praticou exercicios, como no duolingo
 
--sugestao de receitas ou tipos de alimentos distintos dependendo doque o usuario consumiu recentemente
+- Sugestões de treinos para a academia baseado em objetivos
 
--usuarios podem criar grupos com outros usuarios e mandar mensagens e compartilhar treinos,receitas,dietas...
+- Sugestões de receitas ou tipos de alimentos distintos dependendo do que o usuário consumiu recentemente
 
--armazernar a quantidade de litros de agua que o usuario bebeu e,mostrar um grafico de consumo de agua no eixo y e dias no eixo x
+- Usuários podem criar grupos com outros usuários, mandar mensagens e compartilhar treinos,receitas,dietas...
 
--aproximar as vitaminas ingeridas pelo usuario baseado nos alimentos inseridos
+- Armazenar a quantidade de litros de água que o usuário bebeu e mostrar um gráfico de consumo de água no eixo y e dias no eixo x
+
+- Aproximar as vitaminas ingeridas pelo usuário, baseado nos alimentos inseridos
 
 
-BENCHMARKING:
+## BENCHMARKING:
 
-Macros:
+### Para a realização desta técnica de elicitação de requisitos, utilizamos 3 aplicativos diferentes (Macros, Yazio e MyFitnessPal) e listamos features interessantes, capturamos screenshots das interfaces e analisamos alguns pontos positivos e negativos de cada um deles.
 
--calcular a taxa de metabolismo basal usando formulas diferentes
+#### Macros:
 
--mudar a unidade(sistema internacional ou imperial)
+**Features Relevantes**
 
--dark mode
+- Calcular a taxa de metabolismo basal usando diferentes fórmulas
 
--aba de FAQ
+- Mudar a unidade(sistema internacional ou imperial)
 
--area para reportar um problema
+- Dark mode
 
--mudar a recomendacao de calorias baseado em objetivos do usuario
+- Aba de FAQ
 
-yazio:
+- Área para reportar um problema
 
--aproximar o numero de passos baseado na localizao do celular
+- Mudar a recomendacao de calorias baseado em objetivos do usuario
 
--
+**Pontos positivos e negativos**
+
+#### Yazio:
+
+**Features Relevantes**
+
+- Aproximar o número de passos dados no dia, baseado na localização do celular
+
+- Notificações recorrentes lembrando o usuário de adicionar os alimentos ingeridos para contar os nutrientes
+
+- Ao adicionar um alimento  que foi consumido, da próxima vez que o usuário for adicionar alimentos, esse estará em uma aba de Recentes para melhorar a usabilidade
+
+**Pontos positivos e negativos**
+
+
+#### MyFitnessPal
+
+**Features Relevantes**
+
+- Adiciona um objetivo antes de iniciar o aplicativo, obrigatoriamente para ele se ajustar às suas necessidades
+
+- Após setar o seu objetivo, o aplicativo pergunta ao usuário o que o está impossibilitando de atingir esse objetivo
+
+- O usuário insere o seu nível de atividade
+
+- Baseado na sua meta (ganhar ou perder peso), o aplicativo te obriga a colocar uma meta semanal
+
+**Pontos positivos e negativos**

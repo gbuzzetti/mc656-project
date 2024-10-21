@@ -45,7 +45,8 @@
 
 - Mudar a recomendacao de calorias baseado em objetivos do usuario
 
-**Pontos positivos e negativos**
+**negativos**
+-requer assinatura para algumas funcionalidades
 
 #### Yazio:
 
@@ -57,8 +58,10 @@
 
 - Ao adicionar um alimento  que foi consumido, da próxima vez que o usuário for adicionar alimentos, esse estará em uma aba de Recentes para melhorar a usabilidade
 
-**Pontos positivos e negativos**
+**negativos**
+-notificacoes recorrentes podem irritar o usuario
 
+-algumas funcionaliades requerem assinatura
 
 #### MyFitnessPal
 
@@ -72,4 +75,5 @@
 
 - Baseado na sua meta (ganhar ou perder peso), o aplicativo te obriga a colocar uma meta semanal
 
-**Pontos positivos e negativos**
+**negativos**
+-muita burocracia antes de criar a conta

@@ -46,8 +46,9 @@
 - Mudar a recomendacao de calorias baseado em objetivos do usuario
 
 **Screenshots**
-![Home](images/macroshome.jpg)
-![Formula](images/macros2.jpg)
+
+<img src="images/macroshome.jpg" alt="Home" width="300" align="left">
+<img src="images/macros2.jpg" alt="Formula" width="300" align="center">
 
 
 **Pontos negativos**
@@ -66,8 +67,9 @@
 - Ao adicionar um alimento  que foi consumido, da próxima vez que o usuário for adicionar alimentos, esse estará em uma aba de Recentes para melhorar a usabilidade
 
 **Screenshots**
-![Home](images/yaziohome.jpg)
-![Recipes](images/yaziorecipes.jpg)
+
+<img src="images/yaziohome.jpg" alt="Home" width="300" align="left">
+<img src="images/yaziorecipes.jpg" alt="Formula" width="300" align="center">
 
 **Pontos negativos**
 - Notificações recorrentes podem irritar o usuário
@@ -87,8 +89,9 @@
 - Baseado na sua meta (ganhar ou perder peso), o aplicativo te obriga a colocar uma meta semanal
 
 **Screenshots**
-![Home](images/myfitnesspalhome.png)
-![Questionnaire](images/myfitnesspalquestion.png)
+
+<img src="images/myfitnesspalhome.png" alt="Home" width="300" align="left">
+<img src="images/myfitnesspalquestion.png" alt="Formula" width="300" align="center">
 
 **Pontos negativos**
 - Muita burocracia antes de criar a conta, várias perguntas para serem respondidas

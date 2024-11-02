@@ -18,10 +18,12 @@ def classificar_imc(imc: float) -> str:
 
 def calcular_imc(altura: float, peso: float) -> Tuple[str, float]:
     if altura <= 0 or peso <= 0:
-        return "Dados inválidos para cálculo do IMC.", 0.0
+        return "Dados inválidos para cálculo do IMC."  
+
     imc = peso / (altura ** 2)
     classificacao = classificar_imc(imc)
     return classificacao, round(imc, 2)
+
 
 
 

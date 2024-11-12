@@ -1,7 +1,9 @@
-from flask import Blueprint, jsonify, render_template, request
+from flask import Blueprint, jsonify, render_template, request, redirect, url_for
 from app.features.calorias.calculo_calorias_diarias import calcular_gasto_calorico_diario
 from app.features.imc.calculo_imc import calcular_imc
 from app.features.agua.recomendacao_agua import calcular_recomendacao_agua
+from app import LoginForm, RegisterForm, bcrypt, db, User
+from flask_login import login_required, login_user, logout_user
 
 main_bp = Blueprint('main', __name__)
 
@@ -59,3 +61,41 @@ def water():
 @main_bp.route('/about')
 def about():
     return render_template('about.html')
+
+@main_bp.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(username=form.username.data).first()
+        if user:
+            if bcrypt.check_password_hash(user.password, form.password.data):
+                login_user(user)
+                return redirect(url_for('main.dashboard'))
+
+    return render_template('login.html', form=form)
+
+@main_bp.route('/register', methods=['GET', 'POST'])
+def register():
+    form = RegisterForm()
+
+    if form.validate_on_submit():
+        hashed_password = bcrypt.generate_password_hash(form.password.data)
+        new_user = User(username=form.username.data, password=hashed_password)
+        db.session.add(new_user)
+        db.session.commit()
+
+        return redirect(url_for('main.login'))
+
+    return render_template('register.html', form=form)
+
+@main_bp.route('/dashboard', methods=['GET', 'POST'])
+@login_required
+def dashboard():
+    return render_template('dashboard.html')
+
+
+@main_bp.route('/logout', methods=['GET', 'POST'])
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for('main.login'))

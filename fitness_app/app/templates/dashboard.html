@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="blur-background-calories">
+        <div class="dashboard">
+            <h1>Olá, você está logado</h1>
+            <a href="{{url_for('main.logout')}}">Aperte aqui para deslogar</a>
+        
+        </div>
+    </div>
+{% endblock %}

@@ -13,7 +13,7 @@ O projeto a ser desenvolvido é uma aplicação na área de saúde e bem-estar q
 
 ## Diagrama de Componentes da Arquitetura do Projeto
 
-<img src="images/Mapa conceitual.jpeg" alt="Mapa conceitual" width="300" align="center">
+<img src="images/Mapa conceitual.jpeg" alt="Mapa conceitual" width="700" align="center">
 
 Para a criação desse projeto, levamos em consideraçao o Estilo Arquitetural em Camadas. Nesse modelo, o sistema é dividido em diversas camadas, onde cada camada tem uma responsabilidade bem definida e interage com as camadas adjacentes para cumprir seus objetivos.
 

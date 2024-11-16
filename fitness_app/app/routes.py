@@ -1,11 +1,10 @@
 from flask import Blueprint, jsonify, render_template, request, redirect, url_for
-from app.features.calorias.calculo_calorias_diarias import calcular_gasto_calorico_diario
-from app.features.imc.calculo_imc import calcular_imc
-from app.features.agua.recomendacao_agua import calcular_recomendacao_agua
 from app import LoginForm, RegisterForm, bcrypt, db, User
 from flask_login import login_required, login_user, logout_user
+from app.features.facade import Facade
 
 main_bp = Blueprint('main', __name__)
+facade = Facade()
 
 @main_bp.route('/')
 def home():
@@ -20,7 +19,7 @@ def nutrition():
         altura = float(request.form['altura'])/100
 
         # Calcula o IMC com base no peso e altura
-        imc_data = calcular_imc(altura, peso)
+        imc_data = facade.calcular_imc(altura, peso)
 
     # Renderiza a página com o resultado do IMC (se houver)
     return render_template('nutrition.html', imc_result=imc_data)
@@ -37,7 +36,7 @@ def calories():
         nivel_atividade = request.form['nivel_atividade']
 
         # Calcula o gasto calórico diário
-        resultado = calcular_gasto_calorico_diario(sexo, peso, altura, idade, nivel_atividade)
+        resultado = facade.calcular_gasto_calorico_diario(sexo, peso, altura, idade, nivel_atividade)
 
     # Renderiza a página com o resultado do gasto calórico (se houver)
     return render_template('calories.html', resultado=resultado)
@@ -51,7 +50,7 @@ def water():
             kg = float(request.form['peso'])
 
             # Cálculo da quantidade de água
-            water_result = calcular_recomendacao_agua(kg)
+            water_result = facade.calcular_recomendacao_agua(kg)
         except (ValueError, KeyError):
             water_result = 'Erro ao processar os dados. Verifique os valores inseridos.'
 

@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, render_template, request, redirect, url_for
-from app import LoginForm, RegisterForm, bcrypt, db, User, Facade
+from app import LoginForm, RegisterForm, bcrypt, db, User
 from flask_login import login_required, login_user, logout_user
+from app.features.facade import Facade
 
 main_bp = Blueprint('main', __name__)
 facade = Facade()

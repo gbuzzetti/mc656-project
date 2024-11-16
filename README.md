@@ -11,6 +11,11 @@ O projeto a ser desenvolvido é uma aplicação na área de saúde e bem-estar q
 * Guilherme Buzzetti de Souza, 235883
 * Guilherme Azevedo Horn, 247127
 
+## Como dar run no projeto?
+
+O projeto não está hospedado em um site externo no momento. Por isso, deve-se rodá-lo localmente por meio de um git clone e estando na fitness_app/, bater python3 run.py no terminal e clicar no link do servidor local.
+
+
 ## Diagrama de Componentes da Arquitetura do Projeto
 
 <img src="images/Mapa conceitual.jpeg" alt="Mapa conceitual" width="700" align="center">

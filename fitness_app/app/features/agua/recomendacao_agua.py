@@ -1,5 +1,3 @@
-recomendacao_agua.py
-
 from typing import Tuple, Optional
 
 def calcular_recomendacao_agua(peso: float) -> Optional[Tuple[float, int]]:

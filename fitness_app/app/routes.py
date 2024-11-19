@@ -11,6 +11,7 @@ def home():
     return render_template('home.html')
 
 @main_bp.route('/nutrition', methods=['GET', 'POST'])
+@login_required
 def nutrition():
     imc_data = None  # Variável para armazenar o resultado do IMC
     if request.method == 'POST':
@@ -25,6 +26,7 @@ def nutrition():
     return render_template('nutrition.html', imc_result=imc_data)
 
 @main_bp.route('/calories', methods=['GET', 'POST'])
+@login_required
 def calories():
     resultado = None  # Variável para armazenar o resultado do gasto calórico
     if request.method == 'POST':
@@ -42,6 +44,7 @@ def calories():
     return render_template('calories.html', resultado=resultado)
 
 @main_bp.route('/water', methods=['GET', 'POST'])
+@login_required
 def water():
     water_result = None  # Variável para armazenar o resultado da quantidade de água
     if request.method == 'POST':

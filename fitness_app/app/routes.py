@@ -1,10 +1,15 @@
 from flask import Blueprint, jsonify, render_template, request, redirect, url_for
-from app import LoginForm, RegisterForm, bcrypt, db, User
+from app import LoginForm, RegisterForm, bcrypt, db, User, Agua, IMC, Calorias
 from flask_login import login_required, login_user, logout_user, current_user
 from app.features.facade import Facade
 
 main_bp = Blueprint('main', __name__)
 facade = Facade()
+
+def default_if_none(value, default=0):
+    return value if value is not None else default
+
+main_bp.add_app_template_filter(default_if_none, 'default_if_none')
 
 @main_bp.route('/')
 def home():
@@ -21,6 +26,11 @@ def nutrition():
 
         # Calcula o IMC com base no peso e altura
         imc_data = facade.calcular_imc(altura, peso)
+        
+        #Guarda no banco de dados
+        novo_imc = IMC(imc=imc_data[1], user_id=current_user.id)
+        db.session.add(novo_imc)
+        db.session.commit()
 
     # Renderiza a página com o resultado do IMC (se houver)
     return render_template('nutrition.html', imc_result=imc_data)
@@ -40,6 +50,11 @@ def calories():
         # Calcula o gasto calórico diário
         resultado = facade.calcular_gasto_calorico_diario(sexo, peso, altura, idade, nivel_atividade)
 
+        # Armazenar no banco de dados
+        novo_calorias = Calorias(gasto_calorico=resultado, user_id=current_user.id)
+        db.session.add(novo_calorias)
+        db.session.commit()
+
     # Renderiza a página com o resultado do gasto calórico (se houver)
     return render_template('calories.html', resultado=resultado)
 
@@ -54,6 +69,12 @@ def water():
 
             # Cálculo da quantidade de água
             water_result = facade.calcular_recomendacao_agua(kg)
+
+            # Armazenar no banco de dados
+            nova_agua = Agua(agua_diaria=water_result[0], user_id=current_user.id)
+            db.session.add(nova_agua)
+            db.session.commit()
+
         except (ValueError, KeyError):
             water_result = 'Erro ao processar os dados. Verifique os valores inseridos.'
 
@@ -95,7 +116,11 @@ def register():
 @main_bp.route('/dashboard', methods=['GET', 'POST'])
 @login_required
 def dashboard():
-    return render_template('dashboard.html')
+    imcs = [imc.to_dict() for imc in IMC.query.filter_by(user_id=current_user.id).all()]
+    aguas = [agua.to_dict() for agua in Agua.query.filter_by(user_id=current_user.id).all()]
+    calorias = [caloria.to_dict() for caloria in Calorias.query.filter_by(user_id=current_user.id).all()]
+
+    return render_template('dashboard.html', imcs=imcs, aguas=aguas, calorias=calorias)
 
 
 @main_bp.route('/logout', methods=['GET', 'POST'])

@@ -18,8 +18,13 @@
             <a href="/water">Água</a>
             <a href="/calories">Calorias</a>
             <a href="/about">Sobre</a>
-            <a href="/login">Login</a>
-            <a href="/register">Register</a>
+            {% if current_user.is_authenticated %}
+                <a href="/dashboard">Dashboard</a>
+                <a href="/logout">Logout</a>
+            {% else %}
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
+            {% endif %}
         </nav>
         {% block content %}
         <!-- conteudo a ser mostrado -->

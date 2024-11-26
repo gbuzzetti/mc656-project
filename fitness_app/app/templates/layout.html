@@ -6,6 +6,7 @@
     <title>Fitness App</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@400;700&family=Inria+Sans:wght@400;700&family=Italianno:wght@400;700&display=swap">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
@@ -14,12 +15,17 @@
         </div>
         <nav>
             <a href="/">Home</a>
-            <a href="/nutrition">Nutrição</a>
+            <a href="/nutrition">IMC</a>
             <a href="/water">Água</a>
             <a href="/calories">Calorias</a>
             <a href="/about">Sobre</a>
-            <a href="/login">Login</a>
-            <a href="/register">Register</a>
+            {% if current_user.is_authenticated %}
+                <a href="/dashboard">Dashboard</a>
+                <a href="/logout">Logout</a>
+            {% else %}
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
+            {% endif %}
         </nav>
         {% block content %}
         <!-- conteudo a ser mostrado -->

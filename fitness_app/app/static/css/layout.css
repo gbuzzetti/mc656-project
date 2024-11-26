@@ -126,6 +126,34 @@ footer {
     z-index: 1; /* Coloca o conteúdo do calculador acima do blur */
 }
 
+.chart-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex: 1;
+    max-width: 75%;
+    max-height: 75%;
+    height: 300;
+    align-self: center;
+}
+
+
+.blur-background-dashboard {
+    background: rgba(255, 255, 255, 0.75); /* Fundo semi-transparente */
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(48px); /* Efeito de desfoque no fundo */
+    -webkit-backdrop-filter: blur(48px);
+    width: 90%; 
+    height: 40%;
+    display: flex;
+    position: relative; /* Garante que o conteúdo dentro fique no topo */
+    margin: 0 auto;
+    margin-top: 40px;
+    z-index: 1; /* Coloca o conteúdo do calculador acima do blur */
+}
+
 .water-calculator h1 {
     font-family: 'Inria Sans', serif;
     color: #5a2c82;

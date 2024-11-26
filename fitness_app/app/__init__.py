@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, flash, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 import os
@@ -21,6 +21,59 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(20), nullable=False, unique=True)
     password = db.Column(db.String(80), nullable=False)
 
+    imcs = db.relationship('IMC', backref='user', lazy=True)
+    aguas = db.relationship('Agua', backref='user', lazy=True)
+    calorias = db.relationship('Calorias', backref='user', lazy=True)
+
+
+# Histórico de IMC
+class IMC(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    imc = db.Column(db.Float, nullable=False)
+    data = db.Column(db.DateTime, default=db.func.current_timestamp())
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "imc": self.imc,
+            "data": self.data.strftime('%Y-%m-%d %H:%M:%S'),  # Formatar datetime como string
+            "user_id": self.user_id,
+        }
+
+
+# Histórico de Água Diária
+class Agua(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    agua_diaria = db.Column(db.Float, nullable=False)
+    data = db.Column(db.DateTime, default=db.func.current_timestamp())
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "agua_diaria": self.agua_diaria,
+            "data": self.data.strftime('%Y-%m-%d %H:%M:%S'),  # Formatar datetime como string
+            "user_id": self.user_id,
+        }
+
+
+# Histórico de Gasto Calórico
+class Calorias(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    gasto_calorico = db.Column(db.Float, nullable=False)
+    data = db.Column(db.DateTime, default=db.func.current_timestamp())
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "gasto_calorico": self.gasto_calorico,
+            "data": self.data.strftime('%Y-%m-%d %H:%M:%S'),  # Formatar datetime como string
+            "user_id": self.user_id,
+        }
+
+
 class RegisterForm(FlaskForm):
     username = StringField(validators=[InputRequired(), Length(min=4, max=20)], render_kw={"placeholder": "Username"})
 
@@ -42,6 +95,16 @@ class LoginForm(FlaskForm):
     submit = SubmitField("Login") 
 
 
+@login_manager.unauthorized_handler
+def unauthorized():
+    # Adiciona uma mensagem de aviso
+    flash("Você precisa estar logado para acessar esta funcionalidade.")
+    # Redireciona para a página de login
+    return redirect(url_for('main.login'))
+
+
+
+
 
 def create_app():
     app = Flask(__name__)
@@ -52,7 +115,7 @@ def create_app():
     db.init_app(app)
     bcrypt.init_app(app)
     login_manager.init_app(app)
-    login_manager.login_view = "login"
+    login_manager.login_view = "main.login"
 
     # app.config.from_object('config.Config')
 

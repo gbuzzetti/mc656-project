@@ -105,11 +105,10 @@ class TestFitnessFunctions(unittest.TestCase):
         self.assertEqual(classificar_imc(30.0), "Obesidade Grau I")
 
     def test_calcular_imc_analise_valor_limite(self):
-    """ Testa cálculo de IMC com critérios de análise de valor limite """
-    self.assertEqual(calcular_imc(1.75, 70), ("Peso normal", 22.86))
-    self.assertEqual(calcular_imc(1.60, 100), ("Obesidade Grau II", 39.06))  # Corrigido
-    self.assertEqual(calcular_imc(0, 70), "Dados inválidos para cálculo do IMC.")
-
+        """ Testa cálculo de IMC com critérios de análise de valor limite """
+        self.assertEqual(calcular_imc(1.75, 70), ("Peso normal", 22.86))
+        self.assertEqual(calcular_imc(1.60, 100), ("Obesidade Grau II", 39.06))  # Corrigido
+        self.assertEqual(calcular_imc(0, 70), "Dados inválidos para cálculo do IMC.")
 
     def test_classificar_gordura_particionamento(self):
         """ Testa classificação de gordura corporal com particionamento """

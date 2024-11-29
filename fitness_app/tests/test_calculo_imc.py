@@ -1,9 +1,10 @@
+# test_saude.py
 import unittest
 import sys
 import os 
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from app.features.imc.calculo_imc import calcular_imc, classificar_gordura
+from app.features.imc.calculo_imc import calcular_imc, classificar_gordura, classificar_imc
 
 class TestFitnessFunctions(unittest.TestCase):
     
@@ -91,6 +92,29 @@ class TestFitnessFunctions(unittest.TestCase):
         """ Testa se a função retorna mensagem de erro para valores inválidos """
         self.assertEqual(classificar_gordura(-5, 'homem'), "Dados inválidos para classificação de gordura corporal.")
         self.assertEqual(classificar_gordura(15, 'alien'), "Dados inválidos para classificação de gordura corporal.")
+
+    # TESTES DA A5
+
+    def test_classificar_imc_particionamento(self):
+        """ Testa classificação de IMC com critérios de particionamento """
+        self.assertEqual(classificar_imc(18.4), "Abaixo do peso")
+        self.assertEqual(classificar_imc(18.5), "Peso normal")
+        self.assertEqual(classificar_imc(24.9), "Peso normal")
+        self.assertEqual(classificar_imc(25.0), "Sobrepeso")
+        self.assertEqual(classificar_imc(29.9), "Sobrepeso")
+        self.assertEqual(classificar_imc(30.0), "Obesidade Grau I")
+
+    def test_calcular_imc_analise_valor_limite(self):
+        """ Testa cálculo de IMC com critérios de análise de valor limite """
+        self.assertEqual(calcular_imc(1.75, 70), ("Peso normal", 22.86))
+        self.assertEqual(calcular_imc(1.60, 100), ("Obesidade Grau II", 39.06))  # Corrigido
+        self.assertEqual(calcular_imc(0, 70), "Dados inválidos para cálculo do IMC.")
+
+    def test_classificar_gordura_particionamento(self):
+        """ Testa classificação de gordura corporal com particionamento """
+        self.assertEqual(classificar_gordura(3, "homem"), "Gordura essencial")
+        self.assertEqual(classificar_gordura(15, "mulher"), "Atleta")
+        self.assertEqual(classificar_gordura(-5, "mulher"), "Dados inválidos para classificação de gordura corporal.")
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,16 +1,21 @@
-# funcao para calcular Taxa de Metabolismo Basal
+# Funcao para calcular Taxa de Metabolismo Basal
 def calcular_TMB(sexo, peso, altura, idade):
+    if not (30 <= peso <= 300):
+        raise ValueError("Peso inválido. Deve estar entre 30kg e 300kg.")
+    if not (50 <= altura <= 250):
+        raise ValueError("Altura inválida. Deve estar entre 50cm e 250cm.")
+    if not (0 <= idade <= 120):
+        raise ValueError("Idade inválida. Deve estar entre 0 e 120 anos.")
+    
     if sexo.lower() == 'homem':
         tmb = 88.36 + (13.4 * peso) + (4.8 * altura) - (5.7 * idade)
     elif sexo.lower() == 'mulher':
         tmb = 447.6 + (9.2 * peso) + (3.1 * altura) - (4.3 * idade)
-
-    # tratar entrada do sexo, pode ser alterado de acordo com o front-end
     else:
         raise ValueError("Sexo inválido. Use 'homem' ou 'mulher'.")
     return tmb
 
-# funcao para ajustar o Nivel de Atividade no Gasto Calorico Diario
+# Funcao para ajustar o Nivel de Atividade no Gasto Calorico Diario
 def calcular_NA(tmb, nivel_atividade):
     niveis_atividade = {
         'sedentário': 1.2,
@@ -20,7 +25,6 @@ def calcular_NA(tmb, nivel_atividade):
         'muito ativo': 1.9
     }
     
-    # tratar entrada do nivel de atividade, pode ser alterado de acordo com o front-end
     if nivel_atividade.lower() not in niveis_atividade:
         raise ValueError("Nível de atividade inválido.")
     

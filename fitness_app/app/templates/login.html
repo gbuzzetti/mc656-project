@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="blur-background-calories">
+        <div class="login">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li style="color: red;">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+            <h1>Login</h1>
+            
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                {{ form.username() }}
+                {{ form.password() }}
+                {{ form.submit() }}
+            </form>
+
+        
+        </div>
+    </div>
+{% endblock %}

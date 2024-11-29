@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <div class="blur-background-dashboard">
+        <div class="dashboard">
+            <h1>Dashboard</h1>
+
+            <div class="chart-container">
+                <canvas id="imcChart"></canvas>
+                <canvas id="aguaChart"></canvas>
+                <canvas id="caloriasChart"></canvas>
+            </div>
+        
+            <script>
+                // Dados enviados do Flask
+                var imcs = {{ imcs|tojson }};
+                var aguas = {{ aguas|tojson }};
+                var calorias = {{ calorias|tojson }};
+        
+                // Processar dados do IMC
+                var imcLabels = imcs.map(item => item.data); // Datas
+                var imcValues = imcs.map(item => item.imc); // Valores do IMC
+        
+                // Processar dados da Água
+                var aguaLabels = aguas.map(item => item.data); // Datas
+                var aguaValues = aguas.map(item => item.agua_diaria); // Quantidade de água
+        
+                // Processar dados das Calorias
+                var caloriasLabels = calorias.map(item => item.data); // Datas
+                var caloriasValues = calorias.map(item => item.gasto_calorico); // Calorias consumidas
+        
+                // Configuração do gráfico de IMC
+                new Chart(document.getElementById('imcChart'), {
+                    type: 'line',
+                    data: {
+                        labels: imcLabels,
+                        datasets: [{
+                            label: 'IMC ao longo do tempo',
+                            data: imcValues,
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderWidth: 2,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true
+                    }
+                });
+        
+                // Configuração do gráfico de Água
+                new Chart(document.getElementById('aguaChart'), {
+                    type: 'line',
+                    data: {
+                        labels: aguaLabels,
+                        datasets: [{
+                            label: 'Consumo de Água Recomendado (L)',
+                            data: aguaValues,
+                            backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        scales: {
+                            y: {
+                                min: 0,          // O eixo Y começa do zero
+                                max: 10,         // O valor máximo no eixo Y (exemplo: máximo de 10L de água)
+                                ticks: {
+                                    stepSize: 1,  // Intervalo entre os valores do eixo Y (exemplo: de 1L em 1L)
+                                    callback: function(value) {
+                                        return value + 'L';  // Adiciona a unidade "L" para litros
+                                    }
+                                }
+                            }
+                        }
+  
+
+                    }
+                });
+        
+                // Configuração do gráfico de Calorias
+                new Chart(document.getElementById('caloriasChart'), {
+                    type: 'line',
+                    data: {
+                        labels: caloriasLabels,
+                        datasets: [{
+                            label: 'Calorias Consumidas (kcal)',
+                            data: caloriasValues,
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderWidth: 2,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        scales: {
+                            y: {
+                                min: 0,          // O eixo Y começa do zero
+                                max: 4000,         // O valor máximo no eixo Y (exemplo: máximo de 10L de água)
+                                ticks: {
+                                    stepSize: 1,  // Intervalo entre os valores do eixo Y (exemplo: de 1L em 1L)
+                                    callback: function(value) {
+                                        return value;  // Adiciona a unidade "L" para litros
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            </script>
+
+            <a href="{{url_for('main.logout')}}">Aperte aqui para deslogar</a>
+        
+        </div>
+    </div>
+{% endblock %}

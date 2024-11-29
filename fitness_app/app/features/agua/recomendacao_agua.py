@@ -3,7 +3,7 @@ from typing import Tuple, Optional
 def calcular_recomendacao_agua(peso: float) -> Optional[Tuple[float, int]]:
 
     # Error handling
-    if not isinstance(peso, (int, float)) or peso <= 1:
+    if not isinstance(peso, (int, float)) or peso < 10 or peso > 300:
         print('Peso inválido: o peso precisa ser maior que 1!')
         return None
 

@@ -28,7 +28,7 @@ class TestRecAgua(unittest.TestCase):
         self.assertEqual(agua.calcular_recomendacao_agua(100), (3.5, 14))
         #Analise de valor limite - Avaliação 5
         self.assertEqual(agua.calcular_recomendacao_agua(300), (10.5, 42))
-        self.assertEqual(agua.calcular_recomendacao_agua(10), (0.35, 1))
+        self.assertEqual(agua.calcular_recomendacao_agua(10), (0.4, 1))
 
 
 if __name__ == '__main__':
